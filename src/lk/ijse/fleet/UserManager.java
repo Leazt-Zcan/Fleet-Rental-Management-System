@@ -1,18 +1,18 @@
 package lk.ijse.fleet;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class UserManager {
     
-    private LinkedList<SystemUser> users = new LinkedList<>();
+    private ArrayList<SystemUser> users = new ArrayList<>();
 
     public UserManager(){}
     
-    public UserManager(LinkedList<SystemUser> users) {
+    public UserManager(ArrayList<SystemUser> users) {
         this.users = users;
     }
 
-    public LinkedList<SystemUser> getUsers() {
+    public ArrayList<SystemUser> getUsers() {
         return users;
     }
 

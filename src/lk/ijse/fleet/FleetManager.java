@@ -1,13 +1,13 @@
 package lk.ijse.fleet;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.stream.*;
 import java.util.Comparator;
 
 public class FleetManager {
-    private LinkedList <Vehicle> vehicles = new LinkedList<>();
-    private LinkedList <Customer> customers = new LinkedList<>();
-    private LinkedList <RentalAgreement> agreements = new LinkedList<>();
+    private ArrayList <Vehicle> vehicles = new ArrayList<>();
+    private ArrayList <Customer> customers = new ArrayList<>();
+    private ArrayList <RentalAgreement> agreements = new ArrayList<>();
     private RentalEventListener rentalEventListner;
     
     public void addVehicle(Vehicle v){
@@ -48,16 +48,16 @@ public class FleetManager {
         this.rentalEventListner = listener;
     }
     
-    public LinkedList<Vehicle> getAvailableVehicles(){
-        LinkedList<Vehicle> availableVehicles = new LinkedList<>();
-        /*for (Vehicle vehicle : vehicles) {
+    public ArrayList<Vehicle> getAvailableVehicles(){
+        ArrayList<Vehicle> availableVehicles = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
             if(vehicle.getStatus().equals(RentalStatus.AVAILABLE)){
                 availableVehicles.add(vehicle);
             }
-        }*/
-        availableVehicles = (LinkedList<Vehicle>) vehicles.stream()
+        }
+        /*availableVehicles = (LinkedList<Vehicle>) vehicles.stream()
                 .filter(v -> v.getStatus() == RentalStatus.AVAILABLE)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());*/
         return availableVehicles;
     }
     
@@ -113,7 +113,7 @@ public class FleetManager {
     }
     
     public synchronized void printFleetStatus(){
-        generateSnapshot().printSummary();
+        //generateSnapshot().printSummary();
     }
     
     public synchronized void checkOverdueAgreements(){
@@ -125,14 +125,14 @@ public class FleetManager {
         }
     }
     
-    public LinkedList<Vehicle> getVehiclesByFuelType(FuelType type){
-        return (LinkedList<Vehicle>)vehicles.stream()
+    public ArrayList<Vehicle> getVehiclesByFuelType(FuelType type){
+        return (ArrayList<Vehicle>)vehicles.stream()
                 .filter(v -> v.getFuelType() == type)
                 .collect(Collectors.toList());
     }
     
-    public LinkedList<Customer> getCustomerSortedByName(){
-        return (LinkedList<Customer>)customers.stream()
+    public ArrayList<Customer> getCustomerSortedByName(){
+        return (ArrayList<Customer>)customers.stream()
                 .sorted(Comparator.comparing(c -> c.getFullName()))
                 .collect(Collectors.toList());
     }
@@ -144,7 +144,7 @@ public class FleetManager {
     }
     
     public void printAllReportables(){
-        LinkedList<Reportable> reportables = new LinkedList<>();
+        ArrayList<Reportable> reportables = new ArrayList<>();
         reportables.addAll(vehicles);
         reportables.addAll(customers);
         for (Reportable item : reportables) {
@@ -152,12 +152,12 @@ public class FleetManager {
         }
     }
     
-    public LinkedList<Customer> getAllCustomers(){
+    public ArrayList<Customer> getAllCustomers(){
         if(customers == null){
             return null;
         }
         
-        LinkedList<Customer> getCus = new LinkedList<>();
+        ArrayList<Customer> getCus = new ArrayList<>();
         
         for (Customer customer : customers) {
             getCus.add(customer);
@@ -165,12 +165,12 @@ public class FleetManager {
         return getCus;
     }
     
-    public LinkedList<RentalAgreement> getAllAgreements(){
+    public ArrayList<RentalAgreement> getAllAgreements(){
         if(agreements == null){
             return null;
         }
         
-        LinkedList<RentalAgreement> getAgr = new LinkedList<>();
+        ArrayList<RentalAgreement> getAgr = new ArrayList<>();
         
         for (RentalAgreement agreement : agreements) {
             getAgr.add(agreement);

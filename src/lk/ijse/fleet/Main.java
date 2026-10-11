@@ -1,7 +1,7 @@
 package lk.ijse.fleet;
 
 import java.util.Scanner;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -145,10 +145,13 @@ public class Main {
         System.out.println("================================================================");
 
         
-        if (fleetManager.getAvailableVehicles() == null) {
+        ArrayList<Vehicle> availableVehicles = fleetManager.getAvailableVehicles();
+        
+        if (availableVehicles == null) {
             System.out.println("No available vehicles!\n");
         }
-        displayVehicleListInfo(fleetManager.getAvailableVehicles());
+        
+        displayVehicleListInfo(availableVehicles);
     }
     
     public static void viewRevenueReport(){
@@ -173,7 +176,7 @@ public class Main {
         System.out.println("RENTAL AGREEMENTS");
         System.out.println("================================================================");
         
-        LinkedList<RentalAgreement> printAgreements = fleetManager.getAllAgreements();
+        ArrayList<RentalAgreement> printAgreements = fleetManager.getAllAgreements();
         if (printAgreements == null) {
             System.out.println("No rental agreements found!\n");
         } else {
@@ -188,7 +191,7 @@ public class Main {
         System.out.println("CUSTOMERS");
         System.out.println("================================================================");
         
-        LinkedList<Customer> printCustomers = fleetManager.getAllCustomers();
+        ArrayList<Customer> printCustomers = fleetManager.getAllCustomers();
         if (printCustomers == null) {
             System.out.println("No customers found!\n");
         } else {
@@ -202,7 +205,7 @@ public class Main {
         }
     }
     
-    private static void displayVehicleListInfo(LinkedList<Vehicle> vehicles) {
+    private static void displayVehicleListInfo(ArrayList<Vehicle> vehicles) {
         for (Vehicle v : vehicles) {
 
             System.out.println("Vehicle ID: " + v.getVehicleId());
