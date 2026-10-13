@@ -56,8 +56,8 @@ public class RentalAgreement {
                      RENTAL AGREEMENT RECEIPT
                      ================================================================
                      Agreement ID : """ +agreementId+ "\n"
-                + "Vehicle : " + vehicle.getVehicleId() + " - " +vehicle.getBrand() +" "+vehicle.getModel()+" ("+vehicle.getClass()+")\n"
-                + "Customer : " + customer.getCustomerId() +" - "+customer.getFullName()+" ("+customer.getClass()+")\n"
+                + "Vehicle : " + vehicle.getVehicleId() + " - " +vehicle.getBrand() +" "+vehicle.getModel()+" ("+vehicle.getClass().getSimpleName()+")\n"
+                + "Customer : " + customer.getCustomerId() +" - "+customer.getFullName()+" ("+customer.getClass().getSimpleName()+")\n"
                 + "Rental Days : " +rentalDays+"\n"
                 + "Total Cost : " +totalCost+"\n"
                 + "================================================================\n";

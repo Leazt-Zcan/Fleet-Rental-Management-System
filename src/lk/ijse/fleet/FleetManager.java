@@ -55,7 +55,7 @@ public class FleetManager {
                 availableVehicles.add(vehicle);
             }
         }
-        /*availableVehicles = (LinkedList<Vehicle>) vehicles.stream()
+        /*availableVehicles = (ArrayList<Vehicle>) vehicles.stream()
                 .filter(v -> v.getStatus() == RentalStatus.AVAILABLE)
                 .collect(Collectors.toList());*/
         return availableVehicles;

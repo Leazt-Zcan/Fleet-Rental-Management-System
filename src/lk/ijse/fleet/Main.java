@@ -16,7 +16,7 @@ public class Main {
     }
     
     public static void run(){
-        fleetManager.setRentalEventListener(agreement -> System.out.println("[EVENT] New rental created: " + agreement.getAgreementId()));
+        fleetManager.setRentalEventListener(agreement -> System.out.println("\n[EVENT] New rental created: " + agreement.getAgreementId()));
         
         Thread statusThread = new Thread(new VehicleStatusMonitor(fleetManager));
         statusThread.setDaemon(true);
