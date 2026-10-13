@@ -232,7 +232,7 @@ public class Main {
         String c = scanner.nextLine();
         switch (c) {
             case "1" -> {
-                if (fleetManager.getVehiclesByFuelType(FuelType.PETROL) == null) {
+                if (fleetManager.getVehiclesByFuelType(FuelType.PETROL).isEmpty()) {
                     System.out.println("No Petrol Vehicles..!\n");
                     return;
                 }
@@ -240,7 +240,7 @@ public class Main {
                 displayVehicleListInfo(fleetManager.getVehiclesByFuelType(FuelType.PETROL));
             }
             case "2" -> {
-                if (fleetManager.getVehiclesByFuelType(FuelType.DIESEL) == null) {
+                if (fleetManager.getVehiclesByFuelType(FuelType.DIESEL).isEmpty()) {
                     System.out.println("No Diesel Vehicles..!\n");
                     return;
                 }
@@ -248,7 +248,7 @@ public class Main {
                 displayVehicleListInfo(fleetManager.getVehiclesByFuelType(FuelType.DIESEL));
             }
             case "3" -> {
-                if (fleetManager.getVehiclesByFuelType(FuelType.ELECTRIC) == null) {
+                if (fleetManager.getVehiclesByFuelType(FuelType.ELECTRIC).isEmpty()) {
                     System.out.println("No Electric Vehicles..!\n");
                     return;
                 }
@@ -256,7 +256,7 @@ public class Main {
                 displayVehicleListInfo(fleetManager.getVehiclesByFuelType(FuelType.ELECTRIC));
             }
             case "4" -> {
-                if (fleetManager.getVehiclesByFuelType(FuelType.HYBRID) == null) {
+                if (fleetManager.getVehiclesByFuelType(FuelType.HYBRID).isEmpty()) {
                     System.out.println("No Hybrid Vehicles..!\n");
                     return;
                 }
